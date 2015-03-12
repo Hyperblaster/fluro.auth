@@ -77,7 +77,7 @@ angular.module('fluro.auth')
     controller.getSession = function() {
 
         //Auth Login URL
-        return $http.post(FluroConfig.fluro_url + '/auth/session');
+        return $http.get(FluroConfig.fluro_url + '/auth/session');
     };
 
     //////////////////////////
