@@ -3,9 +3,9 @@
 angular.module('fluro.auth', [])
 'use strict';
 
-angular.module('fluro.ui')
+angular.module('fluro.auth')
 
-.controller('AuthModalController', function($scope, $rootScope, FluroConfig, $http, $state) {
+.controller('AuthModalController', function($scope, $rootScope, FluroAuthService, FluroConfig, $http, $state) {
 
     //Dismiss the modal
     $scope.cancel = function() {
@@ -17,18 +17,14 @@ angular.module('fluro.ui')
     //Submit and send back the user
     $scope.submit = function(email, password) {
 
-    	//Auth Login URL
-    	$http.post(FluroConfig.fluro_url + '/auth/login', {
-            username: email,
-            password: password,
-        })
+        var req = FluroAuthService.login(email,password);
 
-        .error(function(result) {
+        req.error(function(result) {
             $rootScope.user = null;
             //console.log('LOGIN ERROR', result)
         })
 
-        .success(function(user) {
+        req.success(function(user) {
             $scope.$close(user);
         });
     };
@@ -37,7 +33,7 @@ angular.module('fluro.ui')
 });
 'use strict';
 
-angular.module('fluro.ui')
+angular.module('fluro.auth')
 
 
 .service('AuthModalService', function($modal, $rootScope) {
@@ -53,5 +49,37 @@ angular.module('fluro.ui')
             $rootScope.user = user;
         });
     };
+
+});
+'use strict';
+
+angular.module('fluro.auth')
+
+.service('FluroAuthService', function($rootScope, $http, FluroConfig) {
+
+    var controller = {};
+
+    //////////////////////////
+
+     //Submit and send back the user
+    controller.login = function(email, password) {
+
+        //Auth Login URL
+        return $http.post(FluroConfig.fluro_url + '/auth/login', {
+            username: email,
+            password: password,
+        })
+    };
+
+    //////////////////////////
+
+    controller.logout = function() {
+        var url = FluroConfig.fluro_url + '/auth/logout';
+        return $http.get(url)
+    };
+
+    //////////////////////////
+
+    return controller;
 
 });
