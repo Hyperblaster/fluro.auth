@@ -61,7 +61,7 @@ angular.module('fluro.auth')
 
     //////////////////////////
 
-     //Submit and send back the user
+    //Submit and send back the user
     controller.login = function(email, password) {
 
         //Auth Login URL
@@ -69,6 +69,15 @@ angular.module('fluro.auth')
             username: email,
             password: password,
         })
+    };
+
+    //////////////////////////
+
+    //Submit and send back the user
+    controller.getSession = function() {
+
+        //Auth Login URL
+        return $http.post(FluroConfig.fluro_url + '/auth/session');
     };
 
     //////////////////////////
