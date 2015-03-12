@@ -63,7 +63,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', ['watch']);
     //grunt.registerTask('build', ['copy:build', 'htmlmin:build', 'uglify:build', 'cssmin:build']);
-    grunt.registerTask('compile', ['ngtemplates', 'concat', 'uglify']);
+    grunt.registerTask('build', ['ngtemplates', 'concat', 'uglify']);
 
     //'autoprefixer', 'cssmin'
 

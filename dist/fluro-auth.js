@@ -44,7 +44,7 @@ angular.module('fluro.ui')
 
     return function() {
         var instance = $modal.open({
-            templateUrl: 'fluro/auth/loginModal.html',
+            templateUrl: 'fluro/auth/authModal.html',
             controller: 'AuthModalController',
         })
 
