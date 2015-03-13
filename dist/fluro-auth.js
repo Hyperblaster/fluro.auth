@@ -7,7 +7,7 @@ angular.module('fluro.auth', [
 
 angular.module('fluro.auth')
 
-.controller('AuthModalController', function($scope, $rootScope, FluroAuthService, FluroConfig, $http, $state) {
+.controller('AuthModalController', function($scope, $rootScope, FluroAuthService, Fluro, $http, $state) {
 
     //Dismiss the modal
     $scope.cancel = function() {
@@ -57,7 +57,7 @@ angular.module('fluro.auth')
 
 angular.module('fluro.auth')
 
-.service('FluroAuthService', function($rootScope, $http, FluroConfig) {
+.service('FluroAuthService', function($rootScope, $http, Fluro) {
 
     var controller = {};
 
@@ -67,7 +67,7 @@ angular.module('fluro.auth')
     controller.login = function(email, password) {
 
         //Auth Login URL
-        return $http.post(FluroConfig.fluro_url + '/auth/login', {
+        return $http.post(Fluro.apiUrl + '/auth/login', {
             username: email,
             password: password,
         })
@@ -79,13 +79,13 @@ angular.module('fluro.auth')
     controller.getSession = function() {
 
         //Auth Login URL
-        return $http.get(FluroConfig.fluro_url + '/auth/session');
+        return $http.get(Fluro.apiUrl + '/auth/session');
     };
 
     //////////////////////////
 
     controller.logout = function() {
-        var url = FluroConfig.fluro_url + '/auth/logout';
+        var url = Fluro.apiUrl + '/auth/logout';
         return $http.get(url)
     };
 
