@@ -67,7 +67,7 @@ angular.module('fluro.auth')
     controller.login = function(email, password) {
 
         //Auth Login URL
-        return $http.post(Fluro.apiUrl + '/auth/login', {
+        return $http.post(Fluro.apiURL + '/auth/login', {
             username: email,
             password: password,
         })
@@ -79,13 +79,13 @@ angular.module('fluro.auth')
     controller.getSession = function() {
 
         //Auth Login URL
-        return $http.get(Fluro.apiUrl + '/auth/session');
+        return $http.get(Fluro.apiURL + '/auth/session');
     };
 
     //////////////////////////
 
     controller.logout = function() {
-        var url = Fluro.apiUrl + '/auth/logout';
+        var url = Fluro.apiURL + '/auth/logout';
         return $http.get(url)
     };
 
