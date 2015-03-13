@@ -35,7 +35,7 @@ angular.module('fluro.auth')
 
 angular.module('fluro.auth')
 
-
+console.log('No cancel')
 .service('AuthModalService', function($modal, $rootScope) {
 
     return function() {
