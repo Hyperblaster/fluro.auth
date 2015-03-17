@@ -5,10 +5,6 @@
 </div>
 <div class="fluro-login-form">
 
-
-
-
-
 	<form novalidate name="loginForm" ng-submit="submit(_email, _password)">
 		<div class="form-element">
 			<div class="input-group with-icon">
@@ -29,6 +25,7 @@
 
 		<div class="form-actions">
 			<button class="btn btn-default" type="submit">Login now</button>
+			<a ng-click="cancel()">Cancel</a>
 			<!--<a class="btn btn-default" ui-sref="signup">Signup</a>-->
 			<!--<a class="btn small btn-default" ng-click="loginWithFacebook()"><i class="fa fa-facebook-square"></i></a>-->
 <!--
