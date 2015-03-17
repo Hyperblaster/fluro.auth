@@ -13,7 +13,6 @@ angular.module('fluro.auth')
     $scope.cancel = function() {
     	$rootScope.user = null;
         $scope.$dismiss();
-        //$state.go('home'); //TODO FIGURE OUT HOW TO HANDLE THIS
     }
 
     //Submit and send back the user
@@ -43,11 +42,10 @@ angular.module('fluro.auth')
         var instance = $modal.open({
             templateUrl: 'fluro/auth/authModal.html',
             controller: 'AuthModalController',
-            //backdrop: 'static',
         })
 
-        return instance.result.then(function(user) {
-        	console.log('Login result', user);
+
+        return modalInstance.result.then(function(user) {
             $rootScope.user = user;
         });
     };
