@@ -45,7 +45,7 @@ angular.module('fluro.auth')
         })
 
 
-        return modalInstance.result.then(function(user) {
+        return instance.result.then(function(user) {
             $rootScope.user = user;
         });
     };
