@@ -74,6 +74,15 @@ angular.module('fluro.auth')
     //////////////////////////
 
     //Submit and send back the user
+    controller.switchAccount = function(accountId) {
+
+        //Auth Login URL
+        return $http.post(Fluro.apiURL + '/auth/switch/' + accountId);
+    };
+
+    //////////////////////////
+
+    //Submit and send back the user
     controller.getSession = function() {
 
         //Auth Login URL
