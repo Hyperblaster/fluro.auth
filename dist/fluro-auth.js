@@ -3,6 +3,7 @@
 angular.module('fluro.auth', [
 	'fluro.config'
 	]);
+/**
 'use strict';
 
 angular.module('fluro.auth')
@@ -32,6 +33,7 @@ angular.module('fluro.auth')
 
 
 });
+/**/
 'use strict';
 
 angular.module('fluro.auth')
