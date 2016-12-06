@@ -24,7 +24,7 @@ module.exports = function(grunt) {
             'fluro.auth': {
                 cwd: './lib/html',
                 src: 'fluro/**/*.html',
-                dest: 'dist/fluro-auth-templates.js',
+                dest: 'dist/fluro.auth-templates.js',
                 options: {
                     htmlmin: {
                         collapseBooleanAttributes: true,
@@ -44,7 +44,7 @@ module.exports = function(grunt) {
         concat: {
             js: {
                 src: ['lib/js/**/*.js'],
-                dest: 'dist/fluro-auth.js',
+                dest: 'dist/fluro.auth.js',
             }
         },
 
@@ -66,8 +66,8 @@ module.exports = function(grunt) {
             },
             build: {
                 src: [
-                    'dist/fluro-auth.js',
-                    'dist/fluro-auth-templates.js'
+                    'dist/fluro.auth.js',
+                    'dist/fluro.auth-templates.js'
                 ],
                 dest: 'dist/fluro.auth.min.js'
             }
